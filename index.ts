@@ -8,6 +8,19 @@ class Product {
     this.name = name;
     this.price = price;
   }
+
+  static findProductsBelow(precioTope: number) {
+
+    return products.filter((p) => {
+      if (p.price < precioTope) {
+        return p;
+      }
+    });
+
+  }
+
+
+
 }
 
 class User {
@@ -20,7 +33,16 @@ class User {
     this.products.push(newProduct);
   }
   addProducts(newProducts: Product[]) {
-    this.products.push(newProducts);
+    // this.products.push(newProducts);
+
+    const copia = this.products;
+    this.products = copia.concat(newProducts);
+
+
+    //for (let i = 0; i < newProducts.length; i++) {
+    //this.products.push(newProducts[i]);
+
+    //}
   }
 }
 
